@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=9449c395-a883-423a-8224-559634a31e50
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepika Gupta — AI-Enabled QA Lead</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1a56db;
+      --primary-light: #e8f0fe;
+      --accent: #0e9f6e;
+      --dark: #111827;
+      --mid: #374151;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.65;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 60px;
+    }
+    .nav-brand { font-weight: 700; font-size: 1.05rem; color: var(--primary); letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.88rem; color: var(--mid); font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1a3a6e 0%, #1a56db 60%, #0e9f6e 100%);
+      color: white;
+      padding: 90px 5% 80px;
+      display: flex; align-items: center; gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-avatar {
+      width: 130px; height: 130px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; font-weight: 700; flex-shrink: 0;
+      letter-spacing: -1px;
+    }
+    .hero-text h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.15; }
+    .hero-text .subtitle {
+      margin-top: 8px; font-size: 1.05rem;
+      opacity: 0.88; font-weight: 400;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .hero-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px; padding: 4px 14px;
+      font-size: 0.8rem; font-weight: 500;
+    }
+    .hero-cta { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    .btn {
+      padding: 10px 22px; border-radius: 8px; font-size: 0.88rem;
+      font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: white; color: var(--primary); }
+    .btn-primary:hover { background: #f0f4ff; }
+    .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 0;
+    }
+    .stat {
+      padding: 22px 40px; text-align: center; border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 1.9rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    /* ── Sections ── */
+    section { padding: 64px 5%; max-width: 1100px; margin: 0 auto; }
+
+    h2 {
+      font-size: 1.6rem; font-weight: 800; color: var(--dark);
+      letter-spacing: -0.3px; margin-bottom: 32px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2::after {
+      content: ''; flex: 1; height: 2px;
+      background: linear-gradient(90deg, var(--primary-light), transparent);
+    }
+
+    /* ── About ── */
+    .about-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 32px;
+      border-left: 4px solid var(--primary);
+    }
+    .about-card p { color: var(--mid); font-size: 1rem; line-height: 1.8; }
+
+    /* ── Experience ── */
+    .timeline { display: flex; flex-direction: column; gap: 24px; }
+    .exp-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 28px 32px;
+      position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .exp-card:hover { transform: translateY(-2px); box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+    .exp-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 4px; background: var(--primary);
+    }
+    .exp-card.current::before { background: linear-gradient(180deg, var(--primary), var(--accent)); }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; }
+    .exp-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); }
+    .exp-company { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+    .exp-date {
+      background: var(--primary-light); color: var(--primary);
+      font-size: 0.78rem; font-weight: 600; padding: 4px 12px;
+      border-radius: 20px; white-space: nowrap;
+    }
+    .current-badge {
+      background: #d1fae5; color: #065f46;
+      font-size: 0.72rem; font-weight: 700; padding: 3px 10px;
+      border-radius: 20px; margin-left: 8px;
+    }
+    .exp-bullets { margin-top: 14px; padding-left: 18px; }
+    .exp-bullets li { color: var(--mid); font-size: 0.9rem; margin-bottom: 6px; line-height: 1.6; }
+    .exp-bullets li strong { color: var(--dark); }
+
+    /* ── Skills ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .skill-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 22px 24px;
+    }
+    .skill-category { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--primary); margin-bottom: 12px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: 0.8rem; color: var(--mid); font-weight: 500;
+    }
+    .tag.highlight { background: var(--primary-light); border-color: #c3d9fd; color: var(--primary); }
+
+    /* ── Highlights / Impact ── */
+    .impact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .impact-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 24px;
+      text-align: center; transition: transform 0.2s;
+    }
+    .impact-card:hover { transform: translateY(-3px); }
+    .impact-icon { font-size: 2rem; margin-bottom: 12px; }
+    .impact-title { font-weight: 700; font-size: 0.95rem; color: var(--dark); margin-bottom: 6px; }
+    .impact-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Awards ── */
+    .awards-list { display: flex; flex-wrap: wrap; gap: 16px; }
+    .award-chip {
+      background: white; border-radius: 10px; box-shadow: var(--shadow);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      flex: 1; min-width: 220px;
+    }
+    .award-icon { font-size: 1.4rem; }
+    .award-text { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+    .award-org { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Contact ── */
+    .contact-section {
+      background: linear-gradient(135deg, #1a3a6e, #1a56db);
+      padding: 64px 5%; text-align: center; color: white;
+    }
+    .contact-section h2 { justify-content: center; color: white; }
+    .contact-section h2::after { background: linear-gradient(90deg, rgba(255,255,255,0.2), transparent); }
+    .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px; padding: 10px 20px; text-decoration: none; color: white;
+      font-size: 0.88rem; font-weight: 500; transition: background 0.2s;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.22); }
+    .contact-tagline { opacity: 0.8; font-size: 1rem; margin-top: 8px; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 20px;
+      font-size: 0.78rem; color: var(--muted);
+      background: white; border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 56px 5% 48px; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .stat { padding: 16px 20px; }
+      nav { padding: 0 4%; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-brand">Deepika Gupta</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="data:image/jpeg;base64,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" alt="Deepika Gupta" style="width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.4);flex-shrink:0;" />
+  <div class="hero-text">
+    <h1>Deepika Gupta</h1>
+    <div class="subtitle">AI-Enabled QA Lead &nbsp;·&nbsp; GenAI Testing &nbsp;·&nbsp; LLM Automation &nbsp;·&nbsp; Agentic QA</div>
+    <div class="hero-badges">
+      <span class="hero-badge">🤖 Claude & Gemini Certified</span>
+      <span class="hero-badge">🧪 11 Years in QA</span>
+      <span class="hero-badge">🏆 4× Award Winner</span>
+      <span class="hero-badge">📍 Open to PAN India / Remote</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#experience" class="btn btn-outline">View Experience</a>
+    </div>
+  </div>
+</div>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">11+</div>
+    <div class="stat-label">Years in QA</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">40%</div>
+    <div class="stat-label">Faster Test Creation via AI</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">200+</div>
+    <div class="stat-label">API Endpoints Automated</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">15+</div>
+    <div class="stat-label">Zero-Defect Releases</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8+</div>
+    <div class="stat-label">Engineers Led</div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-card">
+    <p>
+      I'm an AI-Enabled QA Lead with 11 years in quality engineering and a certified practitioner in Generative AI and LLM-augmented testing workflows. I'm at the forefront of integrating <strong>Claude (Anthropic)</strong> and <strong>Gemini</strong> into QA pipelines — achieving 40% faster test creation and pioneering a production-grade agentic AI tool (<em>jira-qa-readiness-checker</em>) built on the Claude API + MCP.
+    </p>
+    <br/>
+    <p>
+      My expertise spans <strong>Playwright (TypeScript)</strong>, <strong>Selenium WebDriver (C#)</strong>, and API automation, combined with an AI-first mindset for intelligent test generation, prompt engineering, agentic workflow design, and AI-augmented defect analysis. I've delivered zero-critical-defect releases across <strong>healthcare, fintech, aviation, and CPG</strong> platforms, and I'm passionate about defining what next-generation, AI-driven quality engineering looks like in enterprise settings.
+    </p>
+  </div>
+</section>
+
+<!-- Impact -->
+<section id="impact">
+  <h2>Key Impact</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-icon">🚀</div>
+      <div class="impact-title">40% Faster Test Creation</div>
+      <div class="impact-desc">Pioneered AI-assisted test generation using Claude & Gemini LLMs — the organisation's first AI-augmented QA workflow.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">🤖</div>
+      <div class="impact-title">Agentic QA Tool in Production</div>
+      <div class="impact-desc">Architected the <em>jira-qa-readiness-checker</em> — a Claude API + MCP agent that autonomously audits Jira stories at scale.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">✅</div>
+      <div class="impact-title">Zero Critical Defects</div>
+      <div class="impact-desc">Delivered 15+ production releases with zero critical defects across multiple enterprise platforms.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">🧑‍💻</div>
+      <div class="impact-title">Team Leadership</div>
+      <div class="impact-desc">Led and upskilled 8+ QA engineers in AI-augmented testing practices, prompt engineering, and agentic workflows.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">📡</div>
+      <div class="impact-title">85% API Coverage</div>
+      <div class="impact-desc">Managed automation for 200+ endpoints with 85% coverage, leveraging AI-assisted test data generation.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">🌐</div>
+      <div class="impact-title">Multi-Brand QA Strategy</div>
+      <div class="impact-desc">Own end-to-end QA strategy for a multi-brand platform spanning 4 web apps and multiple locales.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+
+    <div class="exp-card current">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">QA Lead (AI-Enabled) <span class="current-badge">Current</span></div>
+          <div class="exp-company">Apply Digital · Kraft Heinz DCX · Noida</div>
+        </div>
+        <div class="exp-date">Nov 2025 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Pioneered AI-assisted test case generation using <strong>Claude and Gemini LLMs</strong>, improving test creation velocity by 40% — organisation's first AI-augmented QA workflow.</li>
+        <li>Architected and shipped the <strong>jira-qa-readiness-checker</strong>: a production-grade agentic tool built on Claude API + MCP that autonomously audits Jira stories against QA entry gates.</li>
+        <li>Established <strong>dataLayer contract testing</strong> via <strong>Playwright (TypeScript)</strong> + Chrome DevTools Protocol to catch analytics regressions pre-release; owns the end-to-end UI automation suite using Playwright (TypeScript).</li>
+        <li>Own end-to-end QA strategy for a multi-brand platform (4 web apps, multiple locales); embed AI tooling into the testing roadmap as a strategic capability.</li>
+        <li>Lead and upskill a team of 8+ QA engineers in AI-augmented testing, prompt engineering, and agentic workflow adoption.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">QA Lead</div>
+          <div class="exp-company">Nityo Infotech · Remote</div>
+        </div>
+        <div class="exp-date">Feb 2023 – Oct 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Led end-to-end QA for enterprise security solutions: Password Management, 2FA, and User Access Review.</li>
+        <li>Built automation frameworks from scratch using <strong>Selenium WebDriver (C#)</strong>, <strong>Selenium WebDriver (Java)</strong>, and <strong>Playwright (TypeScript)</strong>; maintained regression suite in Selenium + Java with Maven; began integrating LLM tooling for scenario brainstorming and coverage analysis.</li>
+        <li>Managed API automation at scale — <strong>200+ endpoints, 85% coverage</strong> — while piloting AI-assisted test data generation.</li>
+        <li>Delivered <strong>15+ production releases with zero critical defects</strong>; mentored 4 junior engineers.</li>
+        <li>Received <strong>Client Appreciation Award (2024)</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Senior Automation Engineer</div>
+          <div class="exp-company">S&amp;P Global · Noida</div>
+        </div>
+        <div class="exp-date">Jul 2020 – Feb 2023</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Automated tests for the Users &amp; Roles module of the <strong>iLevel Capital Markets platform</strong> using Selenium WebDriver (C#).</li>
+        <li>Built Postman API regression infrastructure; authored <strong>150+ API specs</strong>.</li>
+        <li>Received <strong>Star Performer Award (2022)</strong> for framework innovation.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Senior Test Engineer</div>
+          <div class="exp-company">GlobalLogic · Noida</div>
+        </div>
+        <div class="exp-date">Dec 2018 – Apr 2020</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Built <strong>ReadyAPI + Groovy microservice automation</strong> for a healthcare platform (100+ endpoints).</li>
+        <li>Developed UI automation using <strong>Selenium WebDriver (Java)</strong> for end-to-end functional test coverage.</li>
+        <li>Applied data analytics to identify test coverage gaps.</li>
+        <li>Received <strong>SPOT Award (2019)</strong> for test coverage quality.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Senior Quality Analyst</div>
+          <div class="exp-company">Sopra Steria · Noida</div>
+        </div>
+        <div class="exp-date">Jul 2015 – Nov 2018</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Automated airline booking workflows using <strong>Selenium WebDriver (C#)</strong>.</li>
+        <li>Used <strong>SoapUI</strong> to verify SOAP service requests and validate web service contracts across booking workflows.</li>
+        <li>Identified a revenue-leaking defect during regression testing — direct business impact.</li>
+        <li>Received <strong>Star Performer Award (2018)</strong>.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <div class="skill-category">🤖 AI &amp; GenAI</div>
+      <div class="skill-tags">
+        <span class="tag highlight">Claude (Anthropic)</span>
+        <span class="tag highlight">Gemini</span>
+        <span class="tag highlight">Prompt Engineering</span>
+        <span class="tag highlight">AI Test Generation</span>
+        <span class="tag highlight">LLM-Augmented QA</span>
+        <span class="tag highlight">Agentic QA Workflows</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">🧪 Automation</div>
+      <div class="skill-tags">
+        <span class="tag">Playwright (TypeScript)</span>
+        <span class="tag">Selenium WebDriver (C#)</span>
+        <span class="tag">Cypress</span>
+        <span class="tag">Postman</span>
+        <span class="tag">ReadyAPI</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">🏗 Frameworks</div>
+      <div class="skill-tags">
+        <span class="tag">Page Object Model (POM)</span>
+        <span class="tag">BDD/Cucumber</span>
+        <span class="tag">Contract Testing</span>
+        <span class="tag">Data-Driven Testing</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">⚙️ CI/CD &amp; Tools</div>
+      <div class="skill-tags">
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">GitLab CI</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Chrome DevTools Protocol</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">🔧 AI Tooling</div>
+      <div class="skill-tags">
+        <span class="tag highlight">MCP (Model Context Protocol)</span>
+        <span class="tag highlight">Claude API</span>
+        <span class="tag">Agentic Tool Design</span>
+        <span class="tag">AI-Assisted Code Review</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">🗄 Databases</div>
+      <div class="skill-tags">
+        <span class="tag">SQL Server</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">CosmosDB</span>
+        <span class="tag">BigQuery</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">📋 QA Strategy</div>
+      <div class="skill-tags">
+        <span class="tag">Shift-Left Testing</span>
+        <span class="tag">AI-Augmented Test Planning</span>
+        <span class="tag">Risk-Based Testing</span>
+        <span class="tag">Quality Metrics</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-category">🔄 Methodologies</div>
+      <div class="skill-tags">
+        <span class="tag">Agile/Scrum</span>
+        <span class="tag">SAFe</span>
+        <span class="tag">Intelligent Defect Analysis</span>
+        <span class="tag">AI-Driven Reporting</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Awards -->
+<section id="awards" style="padding-top: 0;">
+  <h2>Certifications &amp; Awards</h2>
+  <div class="awards-list">
+    <a class="award-chip" href="https://verify.skilljar.com/c/4hx6b2xhytu4" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      <div class="award-icon">📜</div>
+      <div>
+        <div class="award-text">Claude Code in Action</div>
+        <div class="award-org">Anthropic Academy · May 2026 · <span style="color:#1a56db;">Verify ↗</span></div>
+      </div>
+    </a>
+    <a class="award-chip" href="https://verify.skilljar.com/c/y6q83c4fvk2f" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      <div class="award-icon">📜</div>
+      <div>
+        <div class="award-text">Claude Code 101</div>
+        <div class="award-org">Anthropic Academy · May 2026 · <span style="color:#1a56db;">Verify ↗</span></div>
+      </div>
+    </a>
+    <a class="award-chip" href="https://verify.skilljar.com/c/mngavgkcz9f2" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      <div class="award-icon">📜</div>
+      <div>
+        <div class="award-text">Introduction to Claude Cowork</div>
+        <div class="award-org">Anthropic Academy · Apr 2026 · <span style="color:#1a56db;">Verify ↗</span></div>
+      </div>
+    </a>
+    <a class="award-chip" href="https://verify.skilljar.com/c/3ai3uh8pn2fu" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      <div class="award-icon">📜</div>
+      <div>
+        <div class="award-text">Claude 101</div>
+        <div class="award-org">Anthropic Academy · Apr 2026 · <span style="color:#1a56db;">Verify ↗</span></div>
+      </div>
+    </a>
+    <div class="award-chip">
+      <div class="award-icon">📜</div>
+      <div>
+        <div class="award-text">AI Fluency: AI Capabilities &amp; Limitations</div>
+        <div class="award-org">Anthropic Academy</div>
+      </div>
+    </div>
+    <div class="award-chip">
+      <div class="award-icon">🎓</div>
+      <div>
+        <div class="award-text">AI Ignition Program — Certified</div>
+        <div class="award-org">Claude &amp; Gemini for AI-driven QA workflows · Apply Digital · 2025</div>
+      </div>
+    </div>
+    <div class="award-chip">
+      <div class="award-icon">🏗</div>
+      <div>
+        <div class="award-text">Architect — jira-qa-readiness-checker</div>
+        <div class="award-org">Production agentic AI QA tool built on Claude API + MCP</div>
+      </div>
+    </div>
+    <div class="award-chip">
+      <div class="award-icon">⭐</div>
+      <div>
+        <div class="award-text">Star Performer Award</div>
+        <div class="award-org">Sopra Steria (2018) &nbsp;·&nbsp; S&amp;P Global (2022)</div>
+      </div>
+    </div>
+    <div class="award-chip">
+      <div class="award-icon">🏅</div>
+      <div>
+        <div class="award-text">SPOT Award &amp; Client Appreciation</div>
+        <div class="award-org">GlobalLogic (2019) &nbsp;·&nbsp; Nityo Infotech (2024)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<div class="contact-section" id="contact">
+  <h2>Let's Connect</h2>
+  <p class="contact-tagline">Open to QA Lead, SDET, and AI/GenAI QA roles across India (remote-friendly).</p>
+  <div class="contact-links">
+    <a href="mailto:deepsgupta2411@gmail.com" class="contact-link">
+      📧 deepsgupta2411@gmail.com
+    </a>
+    <a href="tel:+919871077885" class="contact-link">
+      📞 +91-9871077885
+    </a>
+    <a href="https://linkedin.com/in/deepika-gupta-87094b75" target="_blank" class="contact-link">
+      💼 LinkedIn Profile
+    </a>
+  </div>
+</div>
+
+<footer>
+  © 2026 Deepika Gupta &nbsp;·&nbsp; AI-Enabled QA Lead &nbsp;·&nbsp; Built for impact
+</footer>
+
+</body>
+</html>
